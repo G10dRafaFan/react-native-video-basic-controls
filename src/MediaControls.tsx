@@ -50,6 +50,7 @@ export type Props = {
   showBrightness?: boolean;
   sliderScale?: number;
   sliderType?: 'Slider' | 'Swipe';
+  disabled?: boolean
 };
 
 const MediaControls = (props: Props) => {
@@ -83,6 +84,7 @@ const MediaControls = (props: Props) => {
     showBrightness = false,
     sliderScale = 10,
     sliderType = 'Slider',
+    disabled
   } = props;
   const { initialOpacity, initialIsVisible } = (() => {
     if (showOnStart) {
@@ -289,6 +291,7 @@ const MediaControls = (props: Props) => {
               onSeeking={onSeeking}
               onPause={onPause}
               customSliderStyle={sliderStyle}
+              disabled={disabled}
             />
             {isFullscreen && sliderType === 'Slider' && (
               <>

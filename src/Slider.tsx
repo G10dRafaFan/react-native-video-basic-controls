@@ -23,11 +23,13 @@ type Props = Pick<
   | 'onSeek'
   | 'fullScreenIconL'
   | 'fullScreenIconP'
+  | 'disabled'
 > & {
   onSeeking?: (value: number) => void;
   onPause: () => void;
   customSliderStyle?: CustomSliderStyle;
   isFullscreen: Boolean;
+  disabled: true
 };
 
 const fullScreenImage = require('./assets/ic_fullscreen.png');
@@ -45,6 +47,7 @@ const Slider = (props: Props) => {
     isFullscreen,
     onPause,
     progress,
+    disabled
   } = props;
   const fullScreenIcon = isFullscreen ? fullScreenIconL : fullScreenIconP;
   const containerStyle = customSliderStyle?.containerStyle || {};
@@ -52,7 +55,7 @@ const Slider = (props: Props) => {
   const customThumbStyle = customSliderStyle?.thumbStyle || {};
 
   const dragging = (value: number) => {
-    const { onSeeking = () => {}, playerState } = props;
+    const { onSeeking = () => { }, playerState } = props;
     onSeeking(value);
 
     if (playerState === PLAYER_STATES.PAUSED) {
@@ -94,6 +97,7 @@ const Slider = (props: Props) => {
           minimumTrackTintColor={mainColor}
           bufferTrackTintColor={bufferColor}
           bufferValue={bufferValue}
+          disabled={disabled}
         />
       </View>
       <TouchableOpacity
