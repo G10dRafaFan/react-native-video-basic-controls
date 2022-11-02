@@ -29,7 +29,6 @@ type Props = Pick<
   onPause: () => void;
   customSliderStyle?: CustomSliderStyle;
   isFullscreen: Boolean;
-  disabled: true
 };
 
 const fullScreenImage = require('./assets/ic_fullscreen.png');
