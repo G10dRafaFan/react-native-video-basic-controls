@@ -157,7 +157,7 @@
   },
   "dependencies": {
     "@types/react-native-video": "^5.0.13",
-    "react-native-gesture-handler": "2.8.0",
+    "react-native-gesture-handler": "^2.4.0",
     "react-native-orientation-locker": "^1.4.0",
     "react-native-reanimated": "^2.9.1",
     "react-native-system-setting": "^1.7.6"
